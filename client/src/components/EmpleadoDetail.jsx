@@ -29,17 +29,17 @@ const EmpleadoDetail = () => {
 
   return (
     <div className="container">
-      {/* Botón para volver a Home */}
+      
       <Link to="/" className="btn-volver">
         <button className="btn-crear">
-          <i className="fa fa-home" aria-hidden="true"></i> {/* Ícono de casa */}
+          <i className="fa fa-home" aria-hidden="true"></i> 
         </button>
       </Link>
 
       {/* Título y detalles del empleado */}
       <div className="header">
         <h1>Detalle del empleado</h1>
-        {error && <p className="error">{error}</p>} {/* Mostrar error si existe */}
+        {error && <p className="error">{error}</p>} 
       </div>
 
       {/* Tabla de detalles del empleado */}

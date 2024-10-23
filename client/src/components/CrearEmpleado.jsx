@@ -10,6 +10,7 @@ const CrearEmpleado = () => {
   const [antiguedad, setAntiguedad] = useState("");
   const [telefono, setTelefono] = useState("");
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null); // Estado para el mensaje de éxito
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,8 +30,11 @@ const CrearEmpleado = () => {
       );
 
       if (response.status === 201) {
-        // Redireccionar a la lista de empleados después de crear uno nuevo
-        navigate("/");
+        setSuccessMessage("Empleado creado con éxito!!!");
+
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
       }
     } catch (error) {
       console.error("Error al crear el empleado: ", error);
@@ -40,15 +44,20 @@ const CrearEmpleado = () => {
 
   return (
     <div className="container">
-      <Link to="/"> {/* Botón de volver a la home */}
+      <Link to="/"> 
         <button className="btn-crear">
-          <i className="fa fa-home" aria-hidden="true"></i> {/* Icono de casa */}
+          <i className="fa fa-home" aria-hidden="true"></i> 
         </button>
       </Link>
 
       <div className="header">
         <h1>Crear Nuevo Empleado</h1>
         {error && <p className="error">{error}</p>}
+        {successMessage && (
+        <div className="success-banner">
+          <p>{successMessage}</p>
+        </div>
+      )} 
       </div>
 
       <div className="form-container">

@@ -52,7 +52,7 @@ const EmpleadosList = () => {
             <button className="btn-crear">Crear Empleado</button>
           </Link>
 
-          {/* Select para filtrar empleados por área */}
+          {/* filtrar empleados por área */}
           <select value={selectedArea} onChange={handleAreaChange}>
             <option value="">Todas las Áreas</option>{" "}
             {/* Opción para mostrar todos */}
